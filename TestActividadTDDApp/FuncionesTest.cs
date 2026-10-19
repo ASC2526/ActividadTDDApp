@@ -46,5 +46,96 @@ namespace TestActividadTDDApp
 
             Assert.AreEqual(120L, resultado);
         }
+
+
+        [TestMethod]
+        public void EsContrasenyaValida_Null_DevuelveFalse()
+
+        {
+
+            Funciones funciones = new Funciones();
+
+
+
+            bool resultado = funciones.EsContrasenyaValida(null);
+
+
+
+            Assert.IsFalse(resultado);
+
+        }
+
+
+
+        [TestMethod]
+        public void EsContrasenyaValida_Vacia_DevuelveFalse()
+
+        {
+
+            Funciones funciones = new Funciones();
+
+
+
+            bool resultado = funciones.EsContrasenyaValida("");
+
+
+
+            Assert.IsFalse(resultado);
+
+        }
+
+
+
+        [TestMethod]
+        public void EsContrasenyaValida_MenosDeOchoCaracteres_DevuelveFalse()
+
+        {
+
+            Funciones funciones = new Funciones();
+
+
+
+            bool resultado = funciones.EsContrasenyaValida("abc#123");
+
+
+
+            Assert.IsFalse(resultado);
+
+        }
+
+
+        [TestMethod]
+        public void EsContrasenyaValida_SinAlmohadilla_DevuelveFalse()
+
+        {
+
+            Funciones funciones = new Funciones();
+
+
+
+            bool resultado = funciones.EsContrasenyaValida("abcdefgh");
+
+
+
+            Assert.IsFalse(resultado);
+
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_Valida_DevuelveTrue()
+
+        {
+
+            Funciones funciones = new Funciones();
+
+
+
+            bool resultado = funciones.EsContrasenyaValida("abcdefg#");
+
+
+
+            Assert.IsTrue(resultado);
+
+        }
     }
 }
